@@ -220,4 +220,36 @@ Filter.censor(some_string); // "***** *****!"
 Filter.censor(some_string_with_curse) // "Some String With Curse"
 ```
 
+### getData
 
+##### Attributes
+
+| Attribute | Type | Options | Default | Required |
+| --------- | ---- | ------- | ---- | -------- |
+###### Example
+```js
+import BadWordsFiler from "badwordsfilter";
+
+const Filter = new BadWordsFilter();
+
+Filter.setData({"hello": true, "world": true});
+
+Filter.getData(); // {"hello": true, "world": true}
+```
+
+### getToken
+
+##### Attributes
+
+| Attribute | Type | Options | Default | Required |
+| --------- | ---- | ------- | ---- | -------- |
+###### Example
+```js
+import BadWordsFiler from "badwordsfilter";
+
+const Filter = new BadWordsFilter();
+
+Filter.setToken('#');
+
+Filter.getToken(); // #
+```
