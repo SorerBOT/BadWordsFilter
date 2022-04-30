@@ -165,4 +165,36 @@ Filter.setToken('@');
 Filter.censor(some_string_with_curse) // "Some String With @@@@@"
 
 ```
+### setData
+
+##### Attributes
+
+| Attribute | Type | Options | Default | Required |
+| --------- | ---- | ------- | ---- | -------- |
+| Object | Object of profanities | - | - | True |
+
+###### Example
+```js
+import BadWordsFiler from "badwordsfilter";
+
+const Filter = new BadWordsFilter();
+
+const some_string_with_curse = "Hello World";
+
+Filter.censor(some_string_with_curse) // "Some String With *****"
+
+const some_string = "Hello World!";
+
+Filter.censor(some_string); // "Hello World!"
+
+Filter.setData({"hello": true, "world": true});
+
+Filter.censor(some_string); // "***** *****!"
+// Note that the old filter will no longer function.
+// If you wish to retain the previous object, and only just moddify it slighty:
+// (Add / Remove a few words);
+// It is recommended to use the Filter.addWords() / Filter.removeWords() functions instead.
+Filter.censor(some_string_with_curse) // "Some String With Curse"
+```
+
 
