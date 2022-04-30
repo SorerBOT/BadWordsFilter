@@ -1,18 +1,27 @@
 import Data from "../Data/english.json";
 import { regexpTokens, punctuationTokens } from "../RegExp/Tokens.js";
 
-class Filter {
+export default class BadWordsFilter {
     #data;
     #token;
     /** 
      * @constructor
      */
-    constructor(token = '*') { this.#data = Data; this.#token = token; }
+    constructor(token = '*', data = Data) { this.#token = token; this.#data = data; }
+    /**
+     *  Sets the Filter's Token
+     * @param {String} token 
+     */
+    setToken(token) { this.#token = token; }
+    /**
+     * Sets the list of profanities associated with a Filter
+     * @param {Object} data 
+     */
+    setData(data) { this.#data = data; }
     /**
      * Removes a Word from the list.
      * @param {String} word 
      */
-    setToken(token) { this.#token = token; }
     removeWord(word) { delete this.#data[word]; }
     /**
      * Removes an Array of Words from the list.
@@ -53,6 +62,5 @@ class Filter {
      * @returns {Boolean}
      */
     hasCurse(string) { return (string === this.censor(string)) ? false : true; }
+    print() { console.log(this.#data); }
 }
-
-export default Filter;
