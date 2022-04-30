@@ -24,13 +24,13 @@ const filter = new Filter("Your Token Here"); // Tokens default to "*".
 
 ###### Example
 ```js
-import Filter from "badwordsfilter";
+import BadWordsFilter from "badwordsfilter";
 
-const filter = new Filter("*");
+const Filter = new BadWordsFilter("*");
 
 const some_string_with_curse = "Some String With Curse";
 
-filter.censor(some_string_with_curse); // Would return: "Some String With *****"
+Filter.censor(some_string_with_curse); // Would return: "Some String With *****"
 ```
 
 ### HasCurse
@@ -43,13 +43,13 @@ filter.censor(some_string_with_curse); // Would return: "Some String With *****"
 
 ###### Example
 ```js
-import Filter from "badwordsfilter";
+import BadWordsFilter from "badwordsfilter";
 
-const filter = new Filter();
+const Filter = new BadWordsFilter();
 
 const some_string_with_curse = "Some String With Curse";
 
-filter.hasCurse(some_string_with_curse); // Would return: True
+Filter.hasCurse(some_string_with_curse); // Would return: True
 ```
 
 ### removeWord
@@ -62,15 +62,15 @@ filter.hasCurse(some_string_with_curse); // Would return: True
 
 ###### Example
 ```js
-import Filter from "badwordsfilter";
+import BadWordsFilter from "badwordsfilter";
 // say the filter censors a word that you do not wish for it to censor:
-const filter = new Filter();
+const Filter = new Filter();
 
-filter.hasCurse("Curse"); // Would return: True
+Filter.hasCurse("Curse"); // Would return: True
 
-filter.removeWord("curse");
+Filter.removeWord("curse");
 
-filter.hasCurse("Curse"); // Would now return: False
+Filter.hasCurse("Curse"); // Would now return: False
 
 ```
 
@@ -84,15 +84,15 @@ filter.hasCurse("Curse"); // Would now return: False
 
 ###### Example
 ```js
-import Filter from "badwordsfilter";
+import BadWordsFilter from "badwordsfilter";
 // say the filter does not censor a word that you do wish for it to censor:
-const filter = new Filter();
+const Filter = new BadWordsFilter();
 
-filter.hasCurse("Word"); // Would return: False
+Filter.hasCurse("Word"); // Would return: False
 
-filter.removeWord("word");
+Filter.removeWord("word");
 
-filter.hasCurse("Word"); // Would now return: True
+Filter.hasCurse("Word"); // Would now return: True
 
 ```
 ### removeWords
@@ -105,18 +105,18 @@ filter.hasCurse("Word"); // Would now return: True
 
 ###### Example
 ```js
-import Filter from "badwordsfilter";
+import BadWordsFilter from "badwordsfilter";
 // say the filter censors words that you do not wish for it to censor:
-const filter = new Filter();
+const Filter = new BadWordsFilter();
 
-filter.hasCurse("Curse"); // Would return: True
+Filter.hasCurse("Curse"); // Would return: True
 
-filter.hasCurse("AnotherCurse"); // Would return: True
+Filter.hasCurse("AnotherCurse"); // Would return: True
 
-filter.removeWords(["Curse", "AnotherCurse"]);
+Filter.removeWords(["Curse", "AnotherCurse"]);
 
-filter.hasCurse("Curse"); // Would now return: False
-filter.hasCurse("AnotherCurse"); // Would now return: False
+Filter.hasCurse("Curse"); // Would now return: False
+Filter.hasCurse("AnotherCurse"); // Would now return: False
 ```
 ### addWords
 
@@ -128,17 +128,41 @@ filter.hasCurse("AnotherCurse"); // Would now return: False
 
 ###### Example
 ```js
-import Filter from "badwordsfilter";
+import BadWordsFilter from "badwordsfilter";
 // say the filter does not censor words that you do wish for it to censor:
-const filter = new Filter();
+const Filter = new BadWordsFilter();
 
-filter.hasCurse("Word"); // Would return: False
+Filter.hasCurse("Word"); // Would return: False
 
-filter.hasCurse("AnotherWord"); // Would return: False
+Filter.hasCurse("AnotherWord"); // Would return: False
 
-filter.addWords(["Word", "AnotherWord"]);
+Filter.addWords(["Word", "AnotherWord"]);
 
-filter.hasCurse("Word"); // Would now return: True
-filter.hasCurse("AnotherWord"); // Would now return: True
+Filter.hasCurse("Word"); // Would now return: True
+Filter.hasCurse("AnotherWord"); // Would now return: True
+```
+
+### setToken
+
+##### Attributes
+
+| Attribute | Type | Options | Default | Required |
+| --------- | ---- | ------- | ---- | -------- |
+| Token | char | - | - | True |
+
+###### Example
+```js
+import BadWordsFiler from "badwordsfilter";
+
+const Filter = new BadWordsFilter();
+
+const some_string_with_curse = "Some String With Curse";
+
+Filter.censor(some_string_with_curse) // "Some String With *****"
+
+Filter.setToken('@');
+
+Filter.censor(some_string_with_curse) // "Some String With @@@@@"
+
 ```
 
