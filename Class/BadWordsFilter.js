@@ -62,5 +62,14 @@ export default class BadWordsFilter {
      * @returns {Boolean}
      */
     hasCurse(string) { return (string === this.censor(string)) ? false : true; }
-    print() { console.log(this.#data); }
+    /**
+     * Returns the Data
+     * @returns {Object}
+     */
+    getData() { return this.#data; }
+    /**
+     * Returns the Token
+     * @returns {Char}
+     */
+    getToken() { return this.#token; }
 }
