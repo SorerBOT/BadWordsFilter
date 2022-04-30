@@ -3,13 +3,36 @@ An assortment of Functions made to assist a user in Filtering Bad Words from Str
 
 ## Usage
 
-```js
-// import the library
-import Filter from "badwordsfilter";
+### Constructor
 
-const filter = new Filter("Your Token Here"); // Tokens default to "*".
+##### Attributes
+
+| Attribute | Type | Options | Default | Required |
+| --------- | ---- | ------- | ---- | -------- |
+| Token | char | - | - | False |
+| Data | object | - | - | False |
+
+```js
+// import the class
+import BadWordsFilter from "badwordsfilter";
+
+const Filter = new BadWordsFilter();
+
+// Tokens defaults to "*"
+// Data defaults to https://github.com/SorerBOT/BadWordsFilter/blob/main/Data/english.json
+
 // When using the filter.censor() method, profanities and swear words will be replaced with your token. 
 // (e.g., for default token "*": "String With Curse" will become "String With *****")
+
+Data Object will be of the following Structure:
+
+{
+  "curse": true,
+  "profanity": true,
+  "swear": true
+  ...
+}
+
 ```
 
 ## Functions
